@@ -26,7 +26,6 @@ const volunteerSchema = new mongoose.Schema({
     },
     causes: {
          type: [String],
-         type: [String],
          required: true,
          validate: {
            validator: (v) => v.length >= 2,
