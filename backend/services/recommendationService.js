@@ -1,13 +1,6 @@
-const natural = require('natural');
-const TfIdf = natural.TfIdf;
-const vector = require('vector-object');
-const { NGOEvent } = require('../modelLoader');
-function cosineSimilarity(vec1, vec2) {
-  return vector.dotProduct(vec1, vec2) / (vector.magnitude(vec1) * vector.magnitude(vec2));
-}
+async function getRecommendations(userPreferences, selectedDate) {
+  const events = await NGOEvent.find({ date: { $gte: selectedDate } }); 
 
-async function getRecommendations(userPreferences) {
-  const events = await NGOEvent.find();
   const tfidf = new TfIdf();
 
   events.forEach((event, index) => {
@@ -20,14 +13,14 @@ async function getRecommendations(userPreferences) {
 
   const similarities = events.map((event, index) => {
     const similarity = cosineSimilarity(tfidf.getVector(index), tfidf.getVector(events.length));
-    return { event, similarity };
+    const daysDifference = Math.abs((new Date(event.date) - new Date(selectedDate)) / (1000 * 60 * 60 * 24));
+    const dateWeight = 1 / (1 + daysDifference); 
+    return { event, score: similarity * dateWeight };
   });
 
-  similarities.sort((a, b) => b.similarity - a.similarity);
-  return similarities.slice(0, 5).map(item => item.event);
+  similarities.sort((a, b) => b.score - a.score); 
+
+  return similarities.slice(0, 5).map(item => item.event); 
 }
 
 module.exports = { getRecommendations };
-
-
-  
