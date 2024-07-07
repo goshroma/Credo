@@ -1,22 +1,21 @@
 'use client';
 import React, { useState, useEffect } from 'react';
-import { useRouter, useSearchParams } from 'next/navigation'; // Import useSearchParams for reading query parameters
+import { useRouter, useSearchParams } from 'next/navigation'; 
 import axios from 'axios';
 
 export default function AuthPage() {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const mode = searchParams.get('mode'); // Get the 'mode' query parameter
+  const mode = searchParams.get('mode'); 
 
-  // State to determine whether the page is in login or sign-up mode
+  
   const [isLogin, setIsLogin] = useState(mode === 'login');
 
-  // Form states
+
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
 
-  // Effect to handle mode changes if the user navigates directly to /auth without a mode parameter
   useEffect(() => {
     if (!mode) {
       router.replace('/auth?mode=login');
