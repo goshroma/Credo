@@ -1,6 +1,4 @@
-"use client";
 import React from 'react';
-import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 
 const LandingPage: React.FC = () => {
@@ -36,7 +34,7 @@ const LandingPage: React.FC = () => {
           position: relative;
           width: 100%;
           height: 100vh;
-          background-image: url('/bgimage.jpeg'); 
+          background-image: url('/bgimage.jpeg');
           background-size: cover;
           background-position: center;
           display: flex;
@@ -44,7 +42,7 @@ const LandingPage: React.FC = () => {
           justify-content: center;
           color: white;
           text-align: center;
-          padding: 0 20px; 
+          padding: 0 20px;
           box-sizing: border-box;
         }
 
@@ -55,29 +53,29 @@ const LandingPage: React.FC = () => {
           left: 0;
           width: 100%;
           height: 100%;
-          background: rgba(0, 0, 0, 0.5); 
+          background: rgba(0, 0, 0, 0.5);
           z-index: 1;
         }
 
         .hero-content {
           position: relative;
           z-index: 2;
-          text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); 
+          text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
         }
 
         .hero-content h1 {
           font-size: 3rem;
-          font-weight: 700; 
+          font-weight: 700;
           margin-bottom: 1rem;
-          font-family: 'Helvetica', 'Arial', sans-serif; 
+          font-family: 'Helvetica', 'Arial', sans-serif;
         }
 
         .hero-content p {
           font-size: 1.5rem;
           font-weight: 500;
           max-width: 600px;
-          margin: 0 auto; 
-          font-family: 'Helvetica', 'Arial', sans-serif; 
+          margin: 0 auto;
+          font-family: 'Helvetica', 'Arial', sans-serif;
         }
 
         .buttons {
@@ -95,7 +93,7 @@ const LandingPage: React.FC = () => {
           border: none;
           cursor: pointer;
           transition: background-color 0.3s ease;
-          border-radius: 12px; 
+          border-radius: 12px;
         }
 
         .button-primary {
@@ -121,7 +119,6 @@ const LandingPage: React.FC = () => {
           background-color: #cacaca;
         }
 
-        
         @media (max-width: 768px) {
           .hero-content h1 {
             font-size: 2rem;

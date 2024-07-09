@@ -1,17 +1,14 @@
 'use client';
 import React, { useState, useEffect } from 'react';
-import { useRouter, useSearchParams } from 'next/navigation'; 
+import { useRouter, useSearchParams } from 'next/navigation';
 import axios from 'axios';
 
 export default function AuthPage() {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const mode = searchParams.get('mode'); 
+  const mode = searchParams.get('mode');
 
-  
   const [isLogin, setIsLogin] = useState(mode === 'login');
-
-
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
