@@ -11,7 +11,7 @@ const LandingPage: React.FC = () => {
   };
 
   const handleSignup = async () => {
-    router.push('/signup');
+    router.push('/auth?mode=signup');
   };
 
   return (
@@ -21,9 +21,9 @@ const LandingPage: React.FC = () => {
         <p>Connect with causes you care about and make a difference in your community.</p>
       </div>
       <div className="buttons">
-        <Link href="/signup/volunteer" className="button button-primary">
+        
           Sign Up as a Volunteer
-        </Link>
+        
         <button onClick={handleSignup} className="button button-secondary">
           Sign Up
         </button>
@@ -44,7 +44,7 @@ const LandingPage: React.FC = () => {
           justify-content: center;
           color: white;
           text-align: center;
-          padding: 0 20px; /* Add some padding for smaller screens */
+          padding: 0 20px; 
           box-sizing: border-box;
         }
 
@@ -62,22 +62,22 @@ const LandingPage: React.FC = () => {
         .hero-content {
           position: relative;
           z-index: 2;
-          text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Add a shadow for better readability */
+          text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); 
         }
 
         .hero-content h1 {
           font-size: 3rem;
-          font-weight: 700; /* Make the text bold */
+          font-weight: 700; 
           margin-bottom: 1rem;
-          font-family: 'Helvetica', 'Arial', sans-serif; /* Use Helvetica */
+          font-family: 'Helvetica', 'Arial', sans-serif; 
         }
 
         .hero-content p {
           font-size: 1.5rem;
           font-weight: 500;
           max-width: 600px;
-          margin: 0 auto; /* Center the text */
-          font-family: 'Helvetica', 'Arial', sans-serif; /* Use Helvetica */
+          margin: 0 auto; 
+          font-family: 'Helvetica', 'Arial', sans-serif; 
         }
 
         .buttons {
@@ -95,7 +95,7 @@ const LandingPage: React.FC = () => {
           border: none;
           cursor: pointer;
           transition: background-color 0.3s ease;
-          border-radius: 12px; /* Make corners rounded */
+          border-radius: 12px; 
         }
 
         .button-primary {
@@ -121,7 +121,7 @@ const LandingPage: React.FC = () => {
           background-color: #cacaca;
         }
 
-        /* Responsive styles */
+        
         @media (max-width: 768px) {
           .hero-content h1 {
             font-size: 2rem;
